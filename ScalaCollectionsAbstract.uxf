@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><umlet_diagram><help_text>// Uncomment the following line to change the fontsize:
+fontsize=12
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Welcome to UMLet!
+//
+// Double-click on UML elements to add them to the diagram, or to copy them
+// Edit elements by modifying the text in this panel
+// Hold Ctrl to select multiple elements
+// Use Ctrl+mouse to select via lasso
+//
+// Use Â± or Ctrl+mouse wheel to zoom
+// Drag a whole relation at its central square icon
+//
+// Press Ctrl+C to copy the whole diagram to the system clipboard (then just paste it to, eg, Word)
+// Edit the files in the "palettes" directory to create your own element palettes
+//
+// Select "Custom Elements &gt; New..." to create new element types
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// This text will be stored with each diagram;  use it for notes.</help_text><zoom_level>7</zoom_level><element><type>com.umlet.element.base.Class</type><coordinates><x>70</x><y>28</y><w>147</w><h>791</h></coordinates><panel_attributes>Traversable
+--
+/foreach(f)/
+*Addition*
+++(ys)
+*Maps*
+map(f)
+flatMap(f)
+collect(f)
+*Conversions*
+toArray
+toList
+toIterable
+toSeq
+toIndexedSeq
+toStream
+toSet
+toMap
+*Copying*
+copyToBuffer(buf)
+copyToArray(arr, s, n) 
+*Size info*
+isEmpty
+nonEmpty
+size
+hasDefiniteSize
+*Element Retrieval*
+head
+headOption
+last
+lastOption
+find(p)
+*Subcollections*
+tail
+init
+slice (from, to) 
+take(n)
+drop(n)
+takeWhile(p)
+dropWhile(p)
+filter(p)
+withFilter(p)
+filterNot(p)
+*Subdivisions*
+splitAt(n)
+span(p)
+partition(p)
+groupBy(f)
+*Element Conditions*
+forall(p)
+exists(p)
+count(p)
+*Folds*
+(z /: xs)(op) 
+(xs :\ z)(op) 
+foldLeft(z)(op) 
+foldRight(z)(op) 
+reduceLeft(op)
+reduceRight(op)
+*Specific Folds*
+sum
+product
+min
+max
+*Strings*
+addString (b, start, sep, end) 
+mkString (start, sep, end) 
+stringPrefix
+*Views*
+view
+view (from, to)</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Class</type><coordinates><x>266</x><y>28</y><w>147</w><h>196</h></coordinates><panel_attributes>Iterable
+--
+*Abstract Method*
+/iterator/
+foreach(f)
+*Other iterators*
+grouped(size)
+sliding(size)
+*Subcollections*
+takeRight(n)
+dropRight(n)
+*Zippers*
+zip(ys)
+zipAll (ys, x, y) 
+zipWithIndex
+*Comparison*
+sameElements(ys)</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>196</x><y>98</y><w>83</w><h>34</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>21;21;70;21</additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>266</x><y>259</y><w>147</w><h>476</h></coordinates><panel_attributes>Seq
+--
+/iterator/
+*Indexing and Length*
+/apply(i)/
+isDefinedAt(i)
+/length/
+lengthCompare(ys)
+indices
+*Index Search*
+indexOf(x)
+lastIndexOf(x)
+indexOfSlice(ys)
+lastIndexOfSlice(ys)
+indexWhere(p)
+segmentLength (p, i) 
+prefixLength(p)
+*Additions*
++:(x)
+:+(x)
+padTo (len, x) 
+*Updates*
+patch (i, ys, r) 
+updated (i, x) 
+update(i, x)
+*Sorting*
+sorted
+sortWith(lt)
+sortBy(f)
+*Reversals*
+reverse
+reverseIterator
+reverseMap(f)
+*Comparisons*
+startsWith(ys)
+endsWith(ys)
+contains(x)
+containsSlice(ys)
+(corresponds ys)(p) 
+*Multiset Operations*
+intersect(ys)
+diff(ys)
+union(ys)
+distinct</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>315</x><y>203</y><w>34</w><h>69</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>21;21;21;56</additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>448</x><y>483</y><w>147</w><h>56</h></coordinates><panel_attributes>IndexedSeq
+--
+/apply(i)/
+/length/
+iterator</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>392</x><y>490</y><w>69</w><h>34</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>21;21;56;21</additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>448</x><y>28</y><w>147</w><h>252</h></coordinates><panel_attributes>Set
+--
+/iterator/
+/empty/
+*Tests*
+/contains(x)/
+apply(x) 
+subsetOf(ys)
+*Additions*
+/+(x) abstract/
++ (x, y, z) 
+++(ys)
+*Removals*
+/-(x) abstract/
+- (x, y, z)
+--(ys)
+*Binary operations*
+&amp;(ys)
+intersect(ys)
+|(ys)
+union(ys)
+&amp;~(ys)
+diff(ys)</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>392</x><y>98</y><w>69</w><h>34</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>21;21;56;21</additional_attributes></element><element><type>com.umlet.element.base.Note</type><coordinates><x>259</x><y>763</y><w>161</w><h>49</h></coordinates><panel_attributes>/:, foldLeft, reduceLeft
+  op: (accum,elem) =&gt; result
+:\, foldRight, reduceRight
+  op: (elem,accum) =&gt; result</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Class</type><coordinates><x>637</x><y>294</y><w>147</w><h>301</h></coordinates><panel_attributes>Map
+--
+/iterator/
+/empty/
+*Lookups*
+/get(k)/
+apply(k) 
+getOrElse (k, d) 
+contains(k)
+isDefinedAt(k)
+*Additions and Updates*
+/+ (k -&gt; v) abstract/
++ (k -&gt; v, l -&gt; w) 
+++(kvs)
+updated (k, v) 
+*Removals*
+/-(k) abstract/
+- (k, l, m) 
+--(ks)
+*Subcollections*
+keys
+keySet
+keysIterator
+values
+valuesIterator
+*Transformation*
+filterKeys(p)
+mapValues(f)</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>392</x><y>203</y><w>258</w><h>104</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>21;21;42;84;245;91</additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>448</x><y>315</y><w>147</w><h>56</h></coordinates><panel_attributes>LinearSeq
+--
+/apply/
+/length/
+/iterator/
+</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>392</x><y>329</y><w>69</w><h>34</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>21;21;56;21</additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>448</x><y>392</y><w>147</w><h>84</h></coordinates><panel_attributes>LinearSeqOptimized
+--
+/isEmpty/
+/head/
+/tail/
+apply(n)
+length
+iterator</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>504</x><y>350</y><w>34</w><h>55</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>21;21;21;42</additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>448</x><y>546</y><w>147</w><h>252</h></coordinates><panel_attributes>mutable.Buffer
+--
+/apply(n)/
+/iterator/
+/length/
+/update(i,x)/
+*Additions*
+/+=(x) abstract/
++=(x, y, z) 
+++=(xs)
+/+=:(x) abstract/
+++=:(xs)
+insert (i, x) 
+/insertAll (i, xs)/
+*Removals*
+-=(x)
+/remove(i)/
+remove (i, n)
+trimStart(n)
+trimEnd(n)
+/clear()/
+*Cloning*
+clone</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>392</x><y>553</y><w>69</w><h>34</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>21;21;56;21</additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>630</x><y>98</y><w>147</w><h>77</h></coordinates><panel_attributes>Sorted
+--
+compare(k0,k1)
+range(k0,k1)
+from(k0)
+to(k1)
+until(k1)
+
+</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Class</type><coordinates><x>630</x><y>28</y><w>147</w><h>21</h></coordinates><panel_attributes>SortedSet</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Class</type><coordinates><x>630</x><y>217</y><w>147</w><h>21</h></coordinates><panel_attributes>SortedMap</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>686</x><y>217</y><w>34</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>21;77;21;21</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>686</x><y>154</y><w>34</w><h>76</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>21;21;21;63</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>574</x><y>14</y><w>69</w><h>34</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>21;21;56;21</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>686</x><y>28</y><w>34</w><h>83</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>21;70;21;21</additional_attributes></element></umlet_diagram>
